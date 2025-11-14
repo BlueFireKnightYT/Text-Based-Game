@@ -1,38 +1,38 @@
 import os
 
 ascii_art = '''
-+===================================================================+
-|                                                                   |
-|                                                                   |
-|   _______  _______  _       _________ _______  _  _______         |
-|  (  ____ \(  ___  )( (    /|\__   __/(  ___  )( )(  ____ \        |
-|  | (    \/| (   ) ||  \  ( |   ) (   | (   ) ||/ | (    \/        |
-|  | (_____ | (___) ||   \ | |   | |   | (___) |   | (_____         |
-|  (_____  )|  ___  || (\ \) |   | |   |  ___  |   (_____  )        |
-|        ) || (   ) || | \   |   | |   | (   ) |         ) |        |
-|  /\____) || )   ( || )  \  |   | |   | )   ( |   /\____) |        |
-|  \_______)|/     \||/    )_)   )_(   |/     \|   \_______)        |
-|                                                                   |
-|   _       ___________________________ _        _______            |
-|  ( \      \__   __/\__   __/\__   __/( \      (  ____ \           |
-|  | (         ) (      ) (      ) (   | (      | (    \/           |
-|  | |         | |      | |      | |   | |      | (__               |
-|  | |         | |      | |      | |   | |      |  __)              |
-|  | |         | |      | |      | |   | |      | (                 |
-|  | (____/\___) (___   | |      | |   | (____/\| (____/\           |
-|  (_______/\_______/   )_(      )_(   (_______/(_______/           |
-|                                                                   |
-|            _______  _        _______  _______  _______            |
-|  |\     /|(  ____ \( \      (  ____ )(  ____ \(  ____ )           |
-|  | )   ( || (    \/| (      | (    )|| (    \/| (    )|           |
-|  | (___) || (__    | |      | (____)|| (__    | (____)|           |
-|  |  ___  ||  __)   | |      |  _____)|  __)   |     __)           |
-|  | (   ) || (      | |      | (      | (      | (\ (              |
-|  | )   ( || (____/\| (____/\| )      | (____/\| ) \ \__ _  _  _   |
-|  |/     \|(_______/(_______/|/       (_______/|/   \__/(_)(_)(_)  |
-|                                                                   |
-|                                                                   |
-+===================================================================+
++===================================================================+ g    
+|                                                                   | g    
+|                                                                   | g    
+|   _______  _______  _       _________ _______  _  _______         | g    
+|  (  ____ \(  ___  )( (    /|\__   __/(  ___  )( )(  ____ \        | g    
+|  | (    \/| (   ) ||  \  ( |   ) (   | (   ) ||/ | (    \/        | g    
+|  | (_____ | (___) ||   \ | |   | |   | (___) |   | (_____         | g    
+|  (_____  )|  ___  || (\ \) |   | |   |  ___  |   (_____  )        | g    
+|        ) || (   ) || | \   |   | |   | (   ) |         ) |        | g    
+|  /\____) || )   ( || )  \  |   | |   | )   ( |   /\____) |        | g    
+|  \_______)|/     \||/    )_)   )_(   |/     \|   \_______)        | g    
+|                                                                   | g    
+|   _       ___________________________ _        _______            | g    
+|  ( \      \__   __/\__   __/\__   __/( \      (  ____ \           | g    
+|  | (         ) (      ) (      ) (   | (      | (    \/           | g    
+|  | |         | |      | |      | |   | |      | (__               | g    
+|  | |         | |      | |      | |   | |      |  __)              | g    
+|  | |         | |      | |      | |   | |      | (                 | g    
+|  | (____/\___) (___   | |      | |   | (____/\| (____/\           | g    
+|  (_______/\_______/   )_(      )_(   (_______/(_______/           | g    
+|                                                                   | g    
+|            _______  _        _______  _______  _______            | g    
+|  |\     /|(  ____ \( \      (  ____ )(  ____ \(  ____ )           | g    
+|  | )   ( || (    \/| (      | (    )|| (    \/| (    )|           | g    
+|  | (___) || (__    | |      | (____)|| (__    | (____)|           | g    
+|  |  ___  ||  __)   | |      |  _____)|  __)   |     __)           | g    
+|  | (   ) || (      | |      | (      | (      | (\ (              | g    
+|  | )   ( || (____/\| (____/\| )      | (____/\| ) \ \__ _  _  _   | g    
+|  |/     \|(_______/(_______/|/       (_______/|/   \__/(_)(_)(_)  | g    
+|                                                                   | g    
+|                                                                   | g    
++===================================================================+ g    
 '''
 print(ascii_art)
 
@@ -58,7 +58,7 @@ def openInv():
         print("----------------------------------------------------")
     
 Burger = False
-Keycard = False
+Keycard = True
 fuel = False
 crowbar = False
 matches = False
@@ -91,10 +91,11 @@ while kamer == "kamer1":
                 print("You give the guard the burger and you get the keycard")
                 addInv("Keycard")
                 removeInv("Cheeseburger")
-                Keycard = True
+                Keycard = False
                 Burger = False
             elif Burger == False:
-                print("You dont have anything to offer...")
+                print("You dont have anything to offer... \nYou walk back to your workstation.")
+            
     elif "door" in choice.lower():
         if Keycard == False:
             print("The door is locked, find a way to open it...\n")    
@@ -104,7 +105,7 @@ while kamer == "kamer1":
             print("You unlocked the door with the keycard and you moved to the next room.")
             kamer = "kamer2"
             print("You arrive in Santa`s storage room.\n")
-    elif "presents" in choice.lower() or "gifts" in choice.lower():
+    elif "presents" in choice.lower() or "gifts" in choice.lower() or "present" in choice.lower() or "gift" in choice.lower():
         if Burger == False and Keycard == False:
             while True:
                 print("You walked to the presents and one is a really weird shape..\nDo you want to open it?\n  -yes\n  -no\n")
@@ -121,7 +122,7 @@ while kamer == "kamer1":
                 else:
                     print("that is not a choice")
             
-        elif Burger == True or Keycard == True:
+        elif Burger == True:
             print("You walked to the presents and there is nothing you could need.\nYou returned to your work station.")
     else:
         print("that is not a choice") 
@@ -133,7 +134,7 @@ while kamer == "kamer2":
         while True:
             choice = input("Do you want to look inside the bins?\n>")
             openInv()
-            if choice.lower() == "yes" and fuel == False and crowbar == False:
+            if "yes" in choice.lower() and fuel == False and crowbar == False:
                 print("You see 2 things:\n A crowbar\n a jerrycan with fuel")
                 choice = input("Do you want to grab them or walk away?\n>")
                 openInv()
@@ -150,7 +151,7 @@ while kamer == "kamer2":
                         break
                     else:
                         print("That was not an option...")
-            elif choice.lower() == "no":
+            elif "no" in choice.lower():
                 break
             else:
                 print("That was not an option...")
@@ -165,7 +166,7 @@ while kamer == "kamer2":
                 print("You pushed the button and a hidden door opened, you walk through it and find yourself in the hangars.")
                 kamer = "kamer3"
                 break
-            elif "matches" in choice.lower():
+            elif "matches" in choice.lower() or "take" in choice.lower():
                 print("You took the box of matches and put them in your inventory.")
                 addInv("Box of matches")
                 matches = True
@@ -177,21 +178,7 @@ while kamer == "kamer2":
                 print("That was not an option...")
     elif "door" in choice.lower():
         print("The door is locked. find a way to open the door.")  
-        if crowbar == True:
-            while True:
-                choice = input("do you want to use the crowbar to try and open the door?\n -yes\n -no\n>")
-                openInv()
-                if choice.lower() == "yes":
-                    os.system('cls')
-                    print("You used the crowbar to open the door and you walked through it and found yourself in the hangars.")
-                    kamer = "kamer3"
-                    break
-                elif choice.lower() == "no":
-                    print("you didn't use the crowbar.")
-                    break
-                else:
-                    print("That was not an option")
-        elif fuel == True and matches == True:
+        if fuel == True and matches == True:
             print("You think of an option and look at what you have. You have:")
             for items in inventory:
                 print(items)
@@ -209,10 +196,24 @@ while kamer == "kamer2":
                     kamer = "kamer3"
                     break
                 elif choice.lower() == "no":
-                    print("You walked back to your original position.")   
                     break
                 else:
-                    print("That was not an option...")                   
+                    print("That was not an option...")
+
+        while True:
+            if crowbar == True and kamer != "kamer3":
+                choice = input("do you want to use the crowbar to try and open the door?\n -yes\n -no\n>")
+                openInv()
+                if choice.lower() == "yes":
+                    os.system('cls')
+                    print("You used the crowbar to open the door and you walked through it and found yourself in the hangars.")
+                    kamer = "kamer3"
+                    break
+                elif choice.lower() == "no":
+                    print("you didn't use the crowbar.")
+                    break
+                else:
+                    print("That was not an option")
     else:
         print("That was not an option...")
 while kamer == "kamer3":
