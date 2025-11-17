@@ -1,4 +1,7 @@
 import os
+import inputsysteem
+
+
 
 ascii_art = '''
 +===================================================================+
@@ -84,13 +87,13 @@ while kamer == "StartScreen":
 while kamer == "kamer1":
     print("type 'inv' or 'inventory' to open the inventory. \ntype 'help' to open this screen. \n\n")
     print("  -A guard\n  -A door\n  -Presents\n")
-    choice = input("Wich of these do you want to go to? \n>")
+    choice = inputsysteem.vraag_naar_input("Wich of these do you want to go to? \n>")
     openInv(choice)
     if "guard" in choice.lower():
         while True:
             print("You chose to approach the guard.\nGuard: I am really hungry\n")
             print("Do you want to:\n -Attack\n -Bribe\n")
-            choice = input(">")
+            choice = inputsysteem.vraag_naar_input(">")
             openInv(choice)
             if "attack" in choice.lower() or "beat" in choice.lower():
                 os.system('cls')
@@ -124,7 +127,7 @@ while kamer == "kamer1":
         if Burger == False and Keycard == False:
             while True:
                 print("You walked to the presents and one is a really weird shape..\nDo you want to open it?\n  -yes\n  -no\n")
-                choice = input(">")
+                choice = inputsysteem.vraag_naar_input(">")
                 openInv(choice)
                 if choice.lower() == "yes":
                     print("you opened the present, it had a... Cheeseburger?\nThe cheeseburger was added to your inventory\n\nyou returned to your workstation before the guard caught you.")
@@ -143,15 +146,15 @@ while kamer == "kamer1":
         
 while kamer == "kamer2":
     print(" When you look around you see:\n -Some storage bins.\n -A pile of old wood.\n -A door that seems to be locked.")
-    choice = input("Where do you want to go? \n>")
+    choice = inputsysteem.vraag_naar_input("Where do you want to go? \n>")
     openInv(choice)
     if "storage" in choice.lower() or "bin" in choice.lower():
         while True:
-            choice = input("Do you want to look inside the bins?\n>")
+            choice = inputsysteem.vraag_naar_input("Do you want to look inside the bins?\n>")
             openInv(choice)
             if "yes" in choice.lower() and fuel == False and crowbar == False:
                 print("You see 2 things:\n A crowbar\n a jerrycan with fuel")
-                choice = input("Do you want to grab them or walk away?\n>")
+                choice = inputsysteem.vraag_naar_input("Do you want to grab them or walk away?\n>")
                 openInv(choice)
                 while True:
                     if "walk" in choice.lower() or "leave" in choice.lower():
@@ -174,7 +177,7 @@ while kamer == "kamer2":
         print("You walked to the wood pile")
         print("as you look through the woodpile you find a weard button and a box of matches. What do you want to do?\n -Push button\n -Take matches\n -Go back")
         while True:
-            choice = input(">")
+            choice = inputsysteem.vraag_naar_input(">")
             openInv(choice)
             if "button" in choice.lower():
                 os.system('cls')
@@ -198,7 +201,7 @@ while kamer == "kamer2":
             for items in inventory:
                 print(items)
             while True:
-                choice = input("You think you can blow up the door using the fuel and matches. Do you want to try it?\n -yes\n -no\n>")
+                choice = inputsysteem.vraag_naar_input("You think you can blow up the door using the fuel and matches. Do you want to try it?\n -yes\n -no\n>")
                 openInv(choice)
                 if choice.lower() == "yes":
                     os.system('cls')
@@ -216,7 +219,7 @@ while kamer == "kamer2":
                     print("That was not an option...")
 
         if crowbar == True and kamer != "kamer3":
-            choice = input("do you want to use the crowbar to try and open the door?\n -yes\n -no\n>")
+            choice = inputsysteem.vraag_naar_input("do you want to use the crowbar to try and open the door?\n -yes\n -no\n>")
             openInv(choice)
             if choice.lower() == "yes":
                 os.system('cls')
@@ -232,17 +235,17 @@ while kamer == "kamer2":
         print("That was not an option...")
 while kamer == "kamer3":
     print("As you walk into the hangars you see:\n -Santa's sleigh\n -A door that seems to lead outside\n\n where do you want to go?")
-    choice = input(">")
+    choice = inputsysteem.vraag_naar_input(">")
     openInv(choice)
     if "sleigh" in choice.lower() or "sled" in choice.lower():
         print("You approach santa's sleigh and you find that it has no more fuel...")
         if fuel == True:
             print("Do you want to fuel the sleigh using the jerrycan with fuel?\n -Yes\n -No")
-            choice = input(">")
+            choice = inputsysteem.vraag_naar_input(">")
             openInv(choice)
             if choice.lower() == "yes":
                 print("You put the fuel into the sleigh and the start buttun lights up.\nDo you want to leave with the sleigh?\n -Yes\n -No")
-                choice = input(">")
+                choice = inputsysteem.vraag_naar_input(">")
                 openInv(choice)
                 if choice.lower() == "yes":
                     print("You start the sleigh and you leave the factory. as you look back, Santa was right behind you with a rifle..\n YOU WON!!!")
