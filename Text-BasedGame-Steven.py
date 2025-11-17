@@ -59,12 +59,17 @@ def openInv(choice):
             print("  -", items)
         print("----------------------------------------------------")
     
+def help(choice):
+    if help in choice.lower():
+        print("type 'inv' or 'inventory' to open the inventory. \ntype 'help' to open this screen.")
+
+    
 Burger = False
 Keycard = False
 fuel = False
 crowbar = False
 matches = False
-
+lost = False
 while kamer == "StartScreen":
     if start.lower() == "start":
         kamer = "kamer1"
@@ -77,26 +82,35 @@ while kamer == "StartScreen":
         start = input("Type Start or exit: ")
 
 while kamer == "kamer1":
+    print("type 'inv' or 'inventory' to open the inventory. \ntype 'help' to open this screen. \n\n")
     print("  -A guard\n  -A door\n  -Presents\n")
     choice = input("Wich of these do you want to go to? \n>")
     openInv(choice)
     if "guard" in choice.lower():
-        print("You chose to approach the guard.\nGuard: I am really hungry\n")
-        print("Do you want to:\n -Attack\n -Bribe\n")
-        choice = input(">")
-        openInv(choice)
-        if "attack" in choice.lower() or "beat" in choice.lower():
-            os.system('cls')
-            print("You got beat by the guard and you got put into a holding cell...\n\nDEFEAT")
-            break
-        elif "bribe" in choice.lower():
-            if Burger == True:
-                print("You give the guard the burger and you get the keycard")
-                addInv("Keycard")
-                removeInv("Cheeseburger")
-                Keycard = True
-            elif Burger == False:
-                print("You dont have anything to offer... \nYou walk back to your workstation.")   
+        while True:
+            print("You chose to approach the guard.\nGuard: I am really hungry\n")
+            print("Do you want to:\n -Attack\n -Bribe\n")
+            choice = input(">")
+            openInv(choice)
+            if "attack" in choice.lower() or "beat" in choice.lower():
+                os.system('cls')
+                print("You got beat by the guard and you got put into a holding cell...\n\nDEFEAT")
+                lost = True
+                break
+            elif "bribe" in choice.lower():
+                if Burger == True:
+                    print("You give the guard the burger and you get the keycard")
+                    addInv("Keycard")
+                    removeInv("Cheeseburger")
+                    Keycard = True
+                    break
+                elif Burger == False:
+                    print("You dont have anything to offer... \nYou walk back to your workstation.")  
+                    break
+            else:
+                print("That was not one of the options...")
+        if lost == True:
+                break
     elif "door" in choice.lower():
         if Keycard == False:
             print("The door is locked, find a way to open it...\n")    
@@ -126,6 +140,7 @@ while kamer == "kamer1":
             print("You walked to the presents and there is nothing you could need.\nYou returned to your work station.")
     else:
         print("that is not a choice") 
+        
 while kamer == "kamer2":
     print(" When you look around you see:\n -Some storage bins.\n -A pile of old wood.\n -A door that seems to be locked.")
     choice = input("Where do you want to go? \n>")
