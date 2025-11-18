@@ -43,6 +43,7 @@ print(ascii_art)
 
 inventory = []
 kamer = "StartScreen"
+
 print("Type start or exit")
 start = input("> ")
 
@@ -79,6 +80,7 @@ while kamer == "StartScreen":
     print("type 'inv' or 'inventory' to open the inventory. \ntype 'help' to open this screen. \n\n")
     if start.lower() == "start":
         kamer = "kamer1"
+        
         os.system('cls') 
         print("You have been kidnapped by Santa because you are short.\nYou want to escape Santa's workshop, but have not found a way out yet.\n\nYou look around and you see:\n")   
     elif start.lower() == "exit":
@@ -124,6 +126,7 @@ while kamer == "kamer1":
             os.system('cls')
             print("You unlocked the door with the keycard and you moved to the next room.")
             kamer = "kamer2"
+            
             print("You arrive in Santa`s storage room.\n")
     elif "presents" in choice.lower() or "gifts" in choice.lower() or "present" in choice.lower() or "gift" in choice.lower():
         if Burger == False and Keycard == False:
@@ -185,6 +188,7 @@ while kamer == "kamer2":
                 os.system('cls')
                 print("You pushed the button and a hidden door opened, you walk through it and find yourself in the hangars.")
                 kamer = "kamer3"
+                
                 break
             elif "matches" in choice.lower() or "take" in choice.lower():
                 print("You took the box of matches and put them in your inventory.")
@@ -214,6 +218,7 @@ while kamer == "kamer2":
                     fuel = False
                     matches = False
                     kamer = "kamer3"
+                    
                     break
                 elif choice.lower() == "no":
                     break
@@ -227,6 +232,7 @@ while kamer == "kamer2":
                 os.system('cls')
                 print("You used the crowbar to open the door and you walked through it and found yourself in the hangars.")
                 kamer = "kamer3"
+                
             elif choice.lower() == "no":
                 print("you didn't use the crowbar.")
             else:

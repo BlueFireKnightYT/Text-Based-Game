@@ -18,8 +18,5 @@ def vraag_naar_input(vraag_tekst):
             print("The door must be able to go open in some way or another...\n__________________________________________________________")
         elif "hangar" in choice.lower():
             print("The back door doesnt seem like the best idea...\n__________________________________________________________")
-        
-    
 
-    # 3. Geen enkele check klopte → geef gewoon het antwoord terug
-    return antwoord
+
