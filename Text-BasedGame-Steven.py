@@ -89,7 +89,7 @@ while kamer == "StartScreen":
 
 while kamer == "kamer1":
     print("  -A guard\n  -A door\n  -Presents\n")
-    choice = inputsysteem.vraag_naar_input("Wich of these do you want to go to? \n>")
+    choice = inputsysteem.vraag_naar_input("which of these do you want to go to? \n>")
     openInv(choice)
     if "guard" in choice.lower():
         while True:
@@ -110,7 +110,7 @@ while kamer == "kamer1":
                     Keycard = True
                     break
                 elif Burger == False:
-                    print("You dont have anything to offer... \nYou walk back to your workstation.")  
+                    print("You don't have anything to offer... \nYou walk back to your workstation.")  
                     break
             else:
                 print("That was not one of the options...")
@@ -159,10 +159,10 @@ while kamer == "kamer2":
                 choice = inputsysteem.vraag_naar_input("Do you want to grab them or walk away?\n>")
                 openInv(choice)
                 while True:
-                    if "walk" in choice.lower() or "leave" in choice.lower():
+                    if "walk" in choice.lower() or "leave" in choice.lower() or "no" in choice.lower():
                         print("You walked back to your original position.")
                         break
-                    elif "grab" in choice.lower() or "take" in choice.lower() or "pick" in choice.lower():
+                    elif "grab" in choice.lower() or "take" in choice.lower() or "pick" in choice.lower() or "yes" in choice.lower():
                         addInv("jerrycan with fuel")
                         addInv("Crowbar")
                         print("You picked both items up and walked back to the entrance of the room.")
@@ -177,7 +177,7 @@ while kamer == "kamer2":
                 print("That was not an option...")
     elif "wood" in choice.lower() or "pile" in choice.lower():
         print("You walked to the wood pile")
-        print("as you look through the woodpile you find a weard button and a box of matches. What do you want to do?\n -Push button\n -Take matches\n -Go back")
+        print("as you look through the woodpile you find a weird button and a box of matches. What do you want to do?\n -Push button\n -Take matches\n -Go back")
         while True:
             choice = inputsysteem.vraag_naar_input(">")
             openInv(choice)
@@ -257,7 +257,7 @@ while kamer == "kamer3":
             elif choice.lower() == "no":
                 print("You didn't fuel the sleigh and you moved back to your starting position.")
         elif fuel == False:
-            print("You dont have any fuel...")
+            print("You don't have any fuel...")
     elif "door" in choice.lower():
         print("You ran through the door and you hear the guards coming close.\nafter a while, you thought you were in the clear,\nbut then the guards storm outside and take you back to the holding cell..\n\n YOU LOST")
         break
