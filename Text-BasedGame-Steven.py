@@ -1,6 +1,8 @@
 import os
 import inputsysteem
 
+# nou, t werkt gwn nou good job bugfixer
+
 
 
 ascii_art = '''
@@ -65,15 +67,16 @@ def openInv(choice):
 def help(choice):
     if help in choice.lower():
         print("type 'inv' or 'inventory' to open the inventory. \ntype 'help' to open this screen.")
-
+        # miss ook een idee om vanaf de hangar terug te kunnen naar de storage voor als je de fuel niet hebt
     
 Burger = False
 Keycard = False
 fuel = False
 crowbar = False
-matches = False
+matches = None
 lost = False
 while kamer == "StartScreen":
+    print("type 'inv' or 'inventory' to open the inventory. \ntype 'help' to open this screen. \n\n")
     if start.lower() == "start":
         kamer = "kamer1"
         os.system('cls') 
@@ -85,7 +88,6 @@ while kamer == "StartScreen":
         start = input("Type Start or exit: ")
 
 while kamer == "kamer1":
-    print("type 'inv' or 'inventory' to open the inventory. \ntype 'help' to open this screen. \n\n")
     print("  -A guard\n  -A door\n  -Presents\n")
     choice = inputsysteem.vraag_naar_input("Wich of these do you want to go to? \n>")
     openInv(choice)
