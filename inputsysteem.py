@@ -7,7 +7,7 @@ def vraag_naar_input(vraag_tekst):
     # 2. Doe wat checks op de input
     if "exit" in antwoord.lower():
         print("you quit the game")
-        sys.exit
+        sys.exit()
         return None  # dit geeft 'niets' terug
 
     if "help" in antwoord.lower():
@@ -18,5 +18,8 @@ def vraag_naar_input(vraag_tekst):
             print("The door must be able to go open in some way or another...\n__________________________________________________________")
         elif "hangar" in choice.lower():
             print("The back door doesnt seem like the best idea...\n__________________________________________________________")
+        return vraag_naar_input(vraag_tekst)  # Ask again after help
+    
+    return antwoord
 
 
